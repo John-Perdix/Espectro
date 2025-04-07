@@ -33,7 +33,6 @@ public class MoveCupula : MonoBehaviour
     public void Stop()
     {
         direction = 0;
-        // opcional: podes também travar mesmo de vez
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
