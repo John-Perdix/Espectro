@@ -30,18 +30,18 @@ public class MoveCelostato : MonoBehaviour
                 {
                     isDragging = true;
                     lastTouchPosition = touch.position;
-                    //Debug.Log("Started touching lever");
-                    //Debug.Log("touch.position: " + lastTouchPosition);
+                    ////Debug.Log("Started touching lever");
+                    ////Debug.Log("touch.position: " + lastTouchPosition);
                 }
             }
             // Touch is moving<
             else if (touch.phase == TouchPhase.Moved && isDragging)
             {
-                Debug.Log("Dragging is being detected");
+                //Debug.Log("Dragging is being detected");
                 // Apply rotation based on touch movement
                 Vector2 currentPosition = touch.position;
                 float dragDistance = currentPosition.x - lastTouchPosition.x;
-                rb.AddTorque(Vector3.up * dragDistance * rotationForce * Time.deltaTime);
+                rb.AddTorque(new Vector3(0,0,1) * dragDistance * rotationForce * Time.deltaTime);
                 lastTouchPosition = currentPosition;
             }
             // Touch ended
@@ -59,15 +59,16 @@ public class MoveCelostato : MonoBehaviour
             {
                 isDragging = true;
                 lastTouchPosition = Input.mousePosition;
-                Debug.Log("Started clicking lever");
-                Debug.Log("touch.position: " + lastTouchPosition);
+                //Debug.Log("Started clicking lever");
+                //Debug.Log("touch.position: " + lastTouchPosition);
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)
         {
+            //Debug.Log("Dragging is being detected");
             Vector2 currentPosition = Input.mousePosition;
             float dragDistance = currentPosition.x - lastTouchPosition.x;
-            rb.AddTorque(Vector3.up * dragDistance * rotationForce * Time.deltaTime);
+            rb.AddTorque(new Vector3(0,0,1) * dragDistance * rotationForce * Time.deltaTime);
             lastTouchPosition = currentPosition;
         }
         else if (Input.GetMouseButtonUp(0))
@@ -86,11 +87,11 @@ public class MoveCelostato : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             // Check if the ray hit THIS GameObject specifically
-            Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+            //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
             return hit.collider.gameObject == this.gameObject;
         }
         
-        Debug.Log("Raycast hit nothing");
+        //Debug.Log("Raycast hit nothing");
         return false;
     }
 }
