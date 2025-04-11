@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoveCupula : MonoBehaviour
 {
     [SerializeField] public float moveForce = 10f;
+    [SerializeField] Vector3 axis = new Vector3(1,0,0);
     private Rigidbody rb;
     private int direction = 0; // 1 = frente, -1 = trás, 0 = parado
 
@@ -15,7 +16,7 @@ public class MoveCupula : MonoBehaviour
     {
         if (direction != 0)
         {
-            rb.AddForce(Vector3.right * direction * moveForce, ForceMode.Force);
+            rb.AddForce(axis * direction * moveForce, ForceMode.Force);
         }
     }
 

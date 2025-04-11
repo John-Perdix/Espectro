@@ -4,6 +4,8 @@ using UnityEngine;
 public class MoveCelostato : MonoBehaviour
 {
     [SerializeField] private float rotationForce = 500f;
+    [SerializeField] Vector3 axis = new Vector3(0,0,1);
+    [SerializeField] public MoveCupula moveCupula;
     private Rigidbody rb;
     private bool isDragging = false;
     private Vector2 lastTouchPosition;
@@ -41,8 +43,9 @@ public class MoveCelostato : MonoBehaviour
                 // Apply rotation based on touch movement
                 Vector2 currentPosition = touch.position;
                 float dragDistance = currentPosition.x - lastTouchPosition.x;
-                rb.AddTorque(new Vector3(0,0,1) * dragDistance * rotationForce * Time.deltaTime);
+                rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
                 lastTouchPosition = currentPosition;
+                
             }
             // Touch ended
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
@@ -68,8 +71,19 @@ public class MoveCelostato : MonoBehaviour
             //Debug.Log("Dragging is being detected");
             Vector2 currentPosition = Input.mousePosition;
             float dragDistance = currentPosition.x - lastTouchPosition.x;
-            rb.AddTorque(new Vector3(0,0,1) * dragDistance * rotationForce * Time.deltaTime);
+            rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
             lastTouchPosition = currentPosition;
+            Debug.Log(dragDistance);
+            if(dragDistance > 0){
+                moveCupula.MoveForward();
+            }
+            else if(dragDistance < 0)
+            {
+                moveCupula.MoveBackward();
+            }
+            else if (dragDistance == 0){
+                moveCupula.Stop();
+            }
         }
         else if (Input.GetMouseButtonUp(0))
         {
