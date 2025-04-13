@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.firemonkeh.simplecomponentcopy": {
+      "version": "https://github.com/jr-uk/SimpleComponentCopy.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "37684faa9bb18028b5096fcfae3d12f80b8765a7"
+    },
     "com.unity.adaptiveperformance": {
       "version": "5.1.0",
       "depth": 1,

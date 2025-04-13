@@ -45,6 +45,7 @@ public class MoveCelostato : MonoBehaviour
                 float dragDistance = currentPosition.x - lastTouchPosition.x;
                 rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
                 lastTouchPosition = currentPosition;
+                moveOnDrag(dragDistance);
                 
             }
             // Touch ended
@@ -74,16 +75,9 @@ public class MoveCelostato : MonoBehaviour
             rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
             lastTouchPosition = currentPosition;
             Debug.Log(dragDistance);
-            if(dragDistance > 0){
-                moveCupula.MoveForward();
-            }
-            else if(dragDistance < 0)
-            {
-                moveCupula.MoveBackward();
-            }
-            else if (dragDistance == 0){
-                moveCupula.Stop();
-            }
+            moveOnDrag(dragDistance);
+
+            
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -107,5 +101,19 @@ public class MoveCelostato : MonoBehaviour
         
         //Debug.Log("Raycast hit nothing");
         return false;
+    }
+
+    private void moveOnDrag(float dragDistance){
+        moveCupula.moveForce = Mathf.Abs(dragDistance/50);
+        if(dragDistance > 0){
+                moveCupula.MoveForward();
+            }
+            else if(dragDistance < 0)
+            {
+                moveCupula.MoveBackward();
+            }
+            else if (dragDistance == 0){
+                moveCupula.Stop();
+            }
     }
 }
