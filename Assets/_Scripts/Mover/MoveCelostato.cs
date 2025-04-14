@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoveCelostato : MonoBehaviour
 {
-    [SerializeField] private float rotationForce = 500f;
+    [SerializeField] private float rotationForce = 10f;
     [SerializeField] Vector3 axis = new Vector3(0,0,1);
     [SerializeField] public MoveCupula moveCupula;
     private Rigidbody rb;
@@ -104,7 +104,7 @@ public class MoveCelostato : MonoBehaviour
     }
 
     private void moveOnDrag(float dragDistance){
-        moveCupula.moveForce = Mathf.Abs(dragDistance/50);
+        moveCupula.moveForce = Mathf.Abs(dragDistance);
         if(dragDistance > 0){
                 moveCupula.MoveForward();
             }
@@ -112,7 +112,7 @@ public class MoveCelostato : MonoBehaviour
             {
                 moveCupula.MoveBackward();
             }
-            else if (dragDistance == 0){
+            else if (!isDragging){
                 moveCupula.Stop();
             }
     }
