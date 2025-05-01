@@ -6,13 +6,14 @@ public class CinemachineSwitcher : MonoBehaviour
     public CinemachineCamera[] virtualCameras;
     public int activeCameraIndex = 0;
 
-    private void Start()
+    private void Awake()
     {
         ActivateCamera(activeCameraIndex);
     }
 
     public void ActivateCamera(int index)
     {
+        
         if (index < 0 || index >= virtualCameras.Length)
         {
             Debug.LogWarning("Invalid camera index");

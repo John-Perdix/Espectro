@@ -52,6 +52,7 @@ public class MoveCelostato : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
                 isDragging = false;
+                moveCupula?.Stop();
             }
         }
         
@@ -74,7 +75,7 @@ public class MoveCelostato : MonoBehaviour
             float dragDistance = currentPosition.x - lastTouchPosition.x;
             rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
             lastTouchPosition = currentPosition;
-            Debug.Log(dragDistance);
+            //Debug.Log(dragDistance);
             moveOnDrag(dragDistance);
 
             
@@ -82,6 +83,7 @@ public class MoveCelostato : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
+            moveCupula?.Stop();
         }
         #endif
     }
@@ -104,6 +106,7 @@ public class MoveCelostato : MonoBehaviour
     }
 
     private void moveOnDrag(float dragDistance){
+        if (moveCupula != null){
         moveCupula.moveForce = Mathf.Abs(dragDistance);
         if(dragDistance > 0){
                 moveCupula.MoveForward();
@@ -115,5 +118,26 @@ public class MoveCelostato : MonoBehaviour
             else if (!isDragging){
                 moveCupula.Stop();
             }
+    }else{
+        return;
     }
+    }
+
+    void OnDrawGizmosSelected()
+{
+    var joint = GetComponent<ConfigurableJoint>();
+    if (joint == null) return;
+
+    Vector3 origin = transform.position;
+
+    Gizmos.color = Color.red; // Primary axis
+    Gizmos.DrawLine(origin, origin + transform.rotation * joint.axis);
+
+    Gizmos.color = Color.green; // Secondary axis
+    Gizmos.DrawLine(origin, origin + transform.rotation * joint.secondaryAxis);
+
+    Gizmos.color = Color.blue; // Implied Z-axis
+    Vector3 zAxis = Vector3.Cross(joint.axis, joint.secondaryAxis);
+    Gizmos.DrawLine(origin, origin + transform.rotation * zAxis);
+}
 }

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232bb129a5a2c1141a9999f525292b81, type: 3}
+  m_Name: MainDialogueDatabase
+  m_EditorClassIdentifier: 
+  dialogues:
+  - triggerName: Intro
+    lines:
+    - "Isto \xE9 o intro"
+  - triggerName: Celostato
+    lines:
+    - "Toma l\xE1"
+  - triggerName: Lente
+    lines: []
+  - triggerName: Fenda
+    lines: []
+  - triggerName: Filtros
+    lines: []
+  - triggerName: Colimador
+    lines: []
+  - triggerName: Rede de Difracao
+    lines: []
+  - triggerName: Camara
+    lines: []

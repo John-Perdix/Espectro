@@ -2147,7 +2147,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"01c659de01ec86247a72d1b35fe3a298","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"4f2147c2a6eb181438fdaf77b4c9ec11","type":3}}'
     m_Space: -1
   m_Property:
     name: baseColorMap
@@ -2181,7 +2181,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":-462981019419857548,"guid":"f26d4fafc5dd14948a0efba14f97f17c","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2534964839176971238,"guid":"2f79efaaf990a5c449877fdc98fd5e3e","type":3}}'
     m_Space: -1
   m_Property:
     name: mesh
@@ -2295,7 +2295,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 20
     m_Space: -1
   m_Property:
     name: _Size
