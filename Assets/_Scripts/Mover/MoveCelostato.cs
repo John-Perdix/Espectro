@@ -8,6 +8,7 @@ public class MoveCelostato : MonoBehaviour
     [SerializeField] public MoveCupula moveCupula;
     private Rigidbody rb;
     private bool isDragging = false;
+    public static bool IsAnyDragging { get; private set; } = false;
     private Vector2 lastTouchPosition;
     
     void Start()
@@ -31,6 +32,7 @@ public class MoveCelostato : MonoBehaviour
                 if (IsTouchingThisObject(touch.position))
                 {
                     isDragging = true;
+                    IsAnyDragging = true; // Set global flag
                     lastTouchPosition = touch.position;
                     ////Debug.Log("Started touching lever");
                     ////Debug.Log("touch.position: " + lastTouchPosition);
@@ -52,6 +54,7 @@ public class MoveCelostato : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
                 isDragging = false;
+                UpdateIsAnyDragging(); // Recalculate global flag
                 moveCupula?.Stop();
             }
         }
@@ -63,6 +66,7 @@ public class MoveCelostato : MonoBehaviour
             if (IsTouchingThisObject(Input.mousePosition))
             {
                 isDragging = true;
+                IsAnyDragging = true;
                 lastTouchPosition = Input.mousePosition;
                 //Debug.Log("Started clicking lever");
                 //Debug.Log("touch.position: " + lastTouchPosition);
@@ -83,24 +87,42 @@ public class MoveCelostato : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
+            UpdateIsAnyDragging();
             moveCupula?.Stop();
         }
         #endif
     }
+    
+     private void UpdateIsAnyDragging()
+    {
+        // Check all MoveCelostato instances and update static flag
+        foreach (MoveCelostato m in FindObjectsByType<MoveCelostato>(FindObjectsSortMode.None))
+        {
+            if (m.isDragging)
+            {
+                Debug.Log("Dragging in progress!");
+                IsAnyDragging = true;
+                return;
+            }
+        }
+        IsAnyDragging = false;
+    }
+
+    public bool IsDragging => isDragging;
     
     // Helper method to check if this specific GameObject is being touched
     private bool IsTouchingThisObject(Vector2 screenPosition)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
         RaycastHit hit;
-        
+
         if (Physics.Raycast(ray, out hit))
         {
             // Check if the ray hit THIS GameObject specifically
             //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
             return hit.collider.gameObject == this.gameObject;
         }
-        
+
         //Debug.Log("Raycast hit nothing");
         return false;
     }

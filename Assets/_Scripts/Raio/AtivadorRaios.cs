@@ -40,7 +40,6 @@ public class ActivatorRaios : MonoBehaviour
             ManageRaio();
         }
 
-
     }
 
     private void ManageRaio()
@@ -48,36 +47,43 @@ public class ActivatorRaios : MonoBehaviour
         bool positionMatches = Vector3.Distance(Celostato.transform.localPosition, targetPosition) < 0.002f;
         bool rotationMatches = Quaternion.Angle(Espelho.transform.localRotation, Quaternion.Euler(targetRotation)) < 7f;
 
-        Debug.Log("Posição: " + Celostato.name + Celostato.transform.localPosition);
-        Debug.Log("Rotação: " + Espelho.name + Espelho.transform.localEulerAngles);
+        //Debug.Log("Posição: " + Celostato.name + Celostato.transform.localPosition);
+        //Debug.Log("Rotação: " + Espelho.name + Espelho.transform.localEulerAngles);
 
-        if (rotationMatches && !soundPlayedRotation)
+        if (Espelho == null)
         {
-            SoundFXManager.instance.PlaySoundFXClip(audioData.CorrectSound, transform, 1f);
-            Debug.Log("Rotação Correta");
-            soundPlayedRotation = true;
-            wrongSoundEnabled = true;
+            return;
         }
-        else if (!rotationMatches && wrongSoundEnabled)
+        else
         {
-            soundPlayedRotation = false; // Reset flag if rotation no longer matches
-            SoundFXManager.instance.PlaySoundFXClip(audioData.WrongSound, transform, 0.3f);
-            wrongSoundEnabled = false;
+            if (rotationMatches && !soundPlayedRotation)
+            {
+                SoundFXManager.instance.PlaySoundFXClip(audioData.CorrectSound, transform, 1f);
+                Debug.Log("Rotação Correta");
+                soundPlayedRotation = true;
+                wrongSoundEnabled = true;
+            }
+            else if (!rotationMatches && wrongSoundEnabled)
+            {
+                soundPlayedRotation = false; // Reset flag if rotation no longer matches
+                SoundFXManager.instance.PlaySoundFXClip(audioData.WrongSound, transform, 0.3f);
+                wrongSoundEnabled = false;
+            }
         }
 
         if (positionMatches && !soundPlayedPosition)
-        {
-            SoundFXManager.instance.PlaySoundFXClip(audioData.CorrectSound, transform, 1f);
-            Debug.Log("Posição Correta");
-            soundPlayedPosition = true;
-            wrongSoundEnabled = true;
-        }
-        else if (!positionMatches && wrongSoundEnabled)
-        {
-            soundPlayedPosition = false; // Reset flag if position no longer matches
-            SoundFXManager.instance.PlaySoundFXClip(audioData.WrongSound, transform, 0.3f);
-            wrongSoundEnabled = false;
-        }
+            {
+                SoundFXManager.instance.PlaySoundFXClip(audioData.CorrectSound, transform, 1f);
+                Debug.Log("Posição Correta");
+                soundPlayedPosition = true;
+                wrongSoundEnabled = true;
+            }
+            else if (!positionMatches && wrongSoundEnabled)
+            {
+                soundPlayedPosition = false; // Reset flag if position no longer matches
+                SoundFXManager.instance.PlaySoundFXClip(audioData.WrongSound, transform, 0.3f);
+                wrongSoundEnabled = false;
+            }
 
         Raio.SetActive(positionMatches && rotationMatches);
 

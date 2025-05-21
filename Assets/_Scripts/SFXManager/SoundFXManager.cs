@@ -64,4 +64,9 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
         
     }
+
+    internal static void PlaySoundFXClip(AudioClip soundClip, Vector3 position, double v)
+    {
+        throw new System.NotImplementedException();
+    }
 }

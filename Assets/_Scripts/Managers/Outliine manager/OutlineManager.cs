@@ -52,9 +52,11 @@ public class OutlineManager : MonoBehaviour
 
     private void Update()
     {
-        if (alerta){
-        alertaComponent.SetText("Interaja com os objetos destacados");
-        canvasToggle.Show();
+        if (alerta)
+        {
+            alertaComponent.SetText("Interaja com os objetos destacados");
+            canvasToggle.Show();
+            alerta = false;
         }
     }
 

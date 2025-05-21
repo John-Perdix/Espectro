@@ -10,8 +10,8 @@ public class DialogoListas : MonoBehaviour
     public DialogueDatabase dialogueDatabase;
 
     private Dictionary<string, string[]> dialoguesDict;
-    private string[] currentLines;
-    private int index;
+    public string[] currentLines;
+    public int index;
 
     void Awake()
     {
@@ -26,22 +26,23 @@ public class DialogoListas : MonoBehaviour
     }
 
     void Update()
+{
+    if (Input.GetMouseButtonDown(0))
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (currentLines == null) return;
+        if (currentLines == null || index >= currentLines.Length)
+            return;
 
-            if (textComponent.text == currentLines[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = currentLines[index];
-            }
+        if (textComponent.text == currentLines[index])
+        {
+            NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = currentLines[index];
         }
     }
+}
 
     public void StartDialogue(string triggerName)
     {

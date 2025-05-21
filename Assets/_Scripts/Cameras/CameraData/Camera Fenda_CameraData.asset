@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a98bcb4d1912654dbd60983255ce897, type: 3}
+  m_Name: Camera Fenda_CameraData
+  m_EditorClassIdentifier: 
+  camera: {fileID: 4130048511692733879, guid: 20bfc563630a11e45af89c81f658f46b, type: 3}
+  image: {fileID: 21300000, guid: 0e8869f2b43ba034f9fbf19b1eb5f197, type: 3}
+  label: Fenda

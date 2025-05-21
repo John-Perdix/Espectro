@@ -7,6 +7,8 @@ public class Dialogo : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
+
+
     public float textSpeed;
     private int index;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

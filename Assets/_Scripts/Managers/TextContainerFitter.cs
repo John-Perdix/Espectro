@@ -6,7 +6,8 @@ namespace Messy
     public class TextContainerFitter : MonoBehaviour
     {
         [SerializeField] private TMPro.TextMeshProUGUI m_TMProUGUI;
-        [SerializeField] private float MaxWidth = 100f;
+        [SerializeField] private float MaxWidth = 800f;
+
 
         public TMPro.TextMeshProUGUI TextMeshPro
         {
@@ -41,16 +42,25 @@ namespace Messy
         protected float m_PreferredWidth;
         public float PreferredWidth { get { return m_PreferredWidth; } }
 
+        private void start()
+        {
+            TextMeshPro.enableAutoSizing = true;
+        }
         protected virtual void SetSize()
         {
+
             if (TextMeshPro == null)
                 return;
 
-            m_PreferredWidth = TextMeshPro.preferredWidth;
+            TextMeshPro.ForceMeshUpdate();
+            m_PreferredWidth = TextMeshPro.preferredWidth + 100;
             m_PreferredHeight = TextMeshPro.preferredHeight;
 
             float width = Mathf.Min(m_PreferredWidth, MaxWidth);
-            float height = width < MaxWidth ? rectTransform.sizeDelta.y : m_PreferredHeight;
+            //float height = width < MaxWidth ? rectTransform.sizeDelta.y : m_PreferredHeight;
+            float height = 100;
+
+
 
             rectTransform.sizeDelta = new Vector2(width, height);
 
@@ -98,12 +108,12 @@ namespace Messy
             SetDirty();
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected virtual void OnValidate()
         {
             SetDirty();
         }
-        #endif
+#endif
 
         #endregion
     }

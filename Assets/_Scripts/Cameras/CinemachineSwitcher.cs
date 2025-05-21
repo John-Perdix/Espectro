@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 public class CinemachineSwitcher : MonoBehaviour
 {
     public CinemachineCamera[] virtualCameras;
+    //public CinemachineSwitcherDynamic cinemachineSwitcherDynamic;
     public int activeCameraIndex = 0;
 
     private void Awake()
@@ -13,7 +14,7 @@ public class CinemachineSwitcher : MonoBehaviour
 
     public void ActivateCamera(int index)
     {
-        
+
         if (index < 0 || index >= virtualCameras.Length)
         {
             Debug.LogWarning("Invalid camera index");
@@ -27,16 +28,20 @@ public class CinemachineSwitcher : MonoBehaviour
         }
 
         activeCameraIndex = index;
+        //cinemachineSwitcherDynamic.UpdateUI();
     }
 
-    // Optional: Keyboard cycling through cameras
-    private void Update()
+
+    public void IncrementCameraIndex()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            int next = (activeCameraIndex + 1) % virtualCameras.Length;
-            ActivateCamera(next);
-        }
+        int nextIndex = (activeCameraIndex + 1) % virtualCameras.Length;
+        ActivateCamera(nextIndex);
+    }
+
+    public void DecrementCameraIndex()
+    {
+        int prevIndex = (activeCameraIndex - 1 + virtualCameras.Length) % virtualCameras.Length;
+        ActivateCamera(prevIndex);
     }
 }
 

@@ -8,6 +8,7 @@ public class MoveCupula : MonoBehaviour
     [SerializeField] float tolerancia = 0.5f;
     Vector3 snapPosition;
     bool snapEnabled;
+    [SerializeField] private float stepSize = 0.01f;
     
     
 
@@ -34,16 +35,23 @@ public class MoveCupula : MonoBehaviour
         if (direction != 0)
         {
             rb.AddForce(axis * direction * moveForce, ForceMode.Force);
+            //transform.position += axis.normalized * direction * stepSize;
+
+
         }
-        if (diff < tolerancia && snapEnabled){
+        if (diff < tolerancia && snapEnabled)
+        {
             SnapToPosition();
         }
+
+        //Debug.Log("Posição de "+ name +": " + transform.localPosition);
     }
 
     // BOTÕES
     public void MoveForward()
     {
         direction = 1;
+        
     }
 
     public void MoveBackward()
