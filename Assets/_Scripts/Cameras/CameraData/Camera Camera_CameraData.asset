@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Camera_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 7469232821560815928, guid: 9322059df4dff5d41bd0e7891fcdd4ae, type: 3}
-  image: {fileID: 21300000, guid: 8cfc1c7ec480c334e84c80da9a8813ab, type: 3}
+  image: {fileID: 21300000, guid: db91a9d2fdade854288f7026db8d74b3, type: 3}
   label: "Cam\xE2ra"

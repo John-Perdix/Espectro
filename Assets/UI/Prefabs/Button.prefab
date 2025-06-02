@@ -27,13 +27,13 @@ RectTransform:
   m_GameObject: {fileID: 3123838639822907075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2818676936977416607}
-  - {fileID: 3612178062163812701}
   - {fileID: 8270315924741999270}
   - {fileID: 6061917575730859717}
+  - {fileID: 2818676936977416607}
+  - {fileID: 3612178062163812701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -356,7 +356,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6719153074213495796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -116.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -397,15 +397,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af5da5092f161f244a5415f0f94387eb, type: 2}
-  m_sharedMaterial: {fileID: 2976254339222929655, guid: af5da5092f161f244a5415f0f94387eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8187fd5e36e9f5149af1b5ac6f9dbe8c, type: 2}
+  m_sharedMaterial: {fileID: 5696153668151104883, guid: 8187fd5e36e9f5149af1b5ac6f9dbe8c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

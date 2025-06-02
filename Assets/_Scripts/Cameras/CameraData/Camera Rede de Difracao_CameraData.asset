@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Rede de Difracao_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 4199970617544355786, guid: 119e57c02dee1ce488d0e71f237613d5, type: 3}
-  image: {fileID: 21300000, guid: bec230de390ff254e82e54e2c78e4208, type: 3}
+  image: {fileID: 21300000, guid: bc1f6480ad59bca48afc7a5293c47e0d, type: 3}
   label: Rede de Difracao

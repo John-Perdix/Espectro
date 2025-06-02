@@ -7,5 +7,6 @@ public class AudioData : ScriptableObject
     public AudioClip WrongSound;
     public AudioClip BeginSound;
     public AudioClip MoveSound;
+    public AudioClip CamaraSound;
 
 }

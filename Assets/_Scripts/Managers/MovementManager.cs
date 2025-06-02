@@ -38,7 +38,7 @@ public class CupulaManager : MonoBehaviour
             isCupulaOpen = true;
 
 
-            Debug.Log("Cupula Abriu");
+            //Debug.Log("Cupula Abriu");
             canvasComponents.Show();
             butaoEsconder.Show();
             sol.SetActive(true);

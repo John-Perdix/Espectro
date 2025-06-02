@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Edificio_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 7856861005869087961, guid: df0e275a3c40b3047977dce659e7eb6a, type: 3}
-  image: {fileID: 21300000, guid: 98e284dfbe4b441498b9899cdf18cc7d, type: 3}
-  label: Edificio
+  image: {fileID: 21300000, guid: a7fffca71d3b7564082b8ee05dcb07fb, type: 3}
+  label: "Edif\xEDcio"

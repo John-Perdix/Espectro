@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3431365437163138210}
   - component: {fileID: 4130048511692733879}
+  - component: {fileID: 8993771230965273620}
   m_Layer: 0
   m_Name: Camera Fenda
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318839219312805261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09688233, y: -0.7004383, z: 0.09688233, w: 0.7004383}
-  m_LocalPosition: {x: 2.68, y: 1.707, z: 0.099}
+  m_LocalRotation: {x: 0.1287801, y: 0.5180805, z: -0.079251274, w: 0.8418596}
+  m_LocalPosition: {x: 2.562, y: 2.027, z: 0.507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 2312453789418964022, guid: 171e3d96c5335f644b66db1f34d0af31, type: 3}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -75,3 +76,16 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &8993771230965273620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318839219312805261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookAtOffset: {x: 0, y: 0, z: 0}

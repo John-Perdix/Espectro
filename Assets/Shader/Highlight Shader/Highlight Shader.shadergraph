@@ -1481,8 +1481,8 @@
     "m_ObjectId": "c0b1de2077724bc48362034e012a40fe",
     "m_Title": "Make scale independent",
     "m_Position": {
-        "x": -2276.999755859375,
-        "y": 139.0
+        "x": -2277.0,
+        "y": 138.99990844726563
     }
 }
 

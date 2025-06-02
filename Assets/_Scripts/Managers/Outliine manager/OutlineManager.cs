@@ -5,8 +5,10 @@ using UnityEngine.Rendering.Universal;
 public class OutlineManager : MonoBehaviour
 {
     [Tooltip("Reference to the outline render feature")]
-    public ScriptableRendererFeature outlineRenderFeaturePC;
-    public ScriptableRendererFeature outlineRenderFeatureMobile;
+    public ScriptableRendererFeature outlineDragRenderFeaturePC;
+    public ScriptableRendererFeature outlineDragRenderFeatureMobile;
+    public ScriptableRendererFeature outlineTouchRenderFeaturePC;
+    public ScriptableRendererFeature outlineTouchRenderFeatureMobile;
 
     [Tooltip("Delay in seconds before starting to blink")]
     public float delayInSeconds = 30f;
@@ -21,15 +23,18 @@ public class OutlineManager : MonoBehaviour
 
     private void Start()
     {
-        if (outlineRenderFeaturePC == null && outlineRenderFeatureMobile == null)
+        if (outlineDragRenderFeaturePC == null && outlineDragRenderFeatureMobile == null &&
+            outlineTouchRenderFeaturePC == null && outlineTouchRenderFeatureMobile == null)
         {
             Debug.LogError("Outline Render Features are not assigned in the OutlineManager.");
             return;
         }
 
-        // Initially disable the features
-        if (outlineRenderFeaturePC != null) outlineRenderFeaturePC.SetActive(false);
-        if (outlineRenderFeatureMobile != null) outlineRenderFeatureMobile.SetActive(false);
+        // Initially disable all features
+        if (outlineDragRenderFeaturePC != null) outlineDragRenderFeaturePC.SetActive(false);
+        if (outlineDragRenderFeatureMobile != null) outlineDragRenderFeatureMobile.SetActive(false);
+        if (outlineTouchRenderFeaturePC != null) outlineTouchRenderFeaturePC.SetActive(false);
+        if (outlineTouchRenderFeatureMobile != null) outlineTouchRenderFeatureMobile.SetActive(false);
         alerta = false;
 
         // Start blinking coroutine
@@ -43,8 +48,10 @@ public class OutlineManager : MonoBehaviour
 
         while (true)
         {
-            ToggleRenderFeature(outlineRenderFeaturePC);
-            ToggleRenderFeature(outlineRenderFeatureMobile);
+            ToggleRenderFeature(outlineDragRenderFeaturePC);
+            ToggleRenderFeature(outlineDragRenderFeatureMobile);
+            ToggleRenderFeature(outlineTouchRenderFeaturePC);
+            ToggleRenderFeature(outlineTouchRenderFeatureMobile);
             yield return new WaitForSeconds(blinkInterval);
             alerta = true;
         }

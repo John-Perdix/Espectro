@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Cinemachine;
 
 public class CinemachineSwitcherDynamic : MonoBehaviour
 {
     public CameraData[] cameraDataArray;
+    public CinemachineVirtualCameraBase[] cameraInstances;
     public int activeCameraIndex = 1;
 
     [Header("UI Elements of the active camera")]
@@ -21,17 +23,21 @@ public class CinemachineSwitcherDynamic : MonoBehaviour
 
     private void Awake()
 {
+#if UNITY_EDITOR
+    if (!Application.isPlaying) return;
+#endif
+    cameraInstances = new CinemachineVirtualCameraBase[cameraDataArray.Length];
     for (int i = 0; i < cameraDataArray.Length; i++)
-{
-    var prefab = cameraDataArray[i].camera;
-    if (prefab != null && prefab != gameObject)
     {
-        var instance = Instantiate(prefab, transform); // Parent set
-        instance.transform.localPosition = prefab.transform.localPosition;
-        instance.transform.localRotation = prefab.transform.localRotation;
-        cameraDataArray[i].camera = instance;
+        var prefab = cameraDataArray[i].camera;
+        if (prefab != null && prefab != gameObject)
+        {
+            var instance = Instantiate(prefab, transform);
+            instance.transform.localPosition = prefab.transform.localPosition;
+            instance.transform.localRotation = prefab.transform.localRotation;
+            cameraInstances[i] = instance; // Store instance locally, not in the asset!
+        }
     }
-}
 
     ActivateCamera(activeCameraIndex);
     UpdateUI();
@@ -45,10 +51,10 @@ public class CinemachineSwitcherDynamic : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < cameraDataArray.Length; i++)
+        for (int i = 0; i < cameraInstances.Length; i++)
         {
-            if (cameraDataArray[i].camera != null)
-                cameraDataArray[i].camera.Priority = (i == index) ? 10 : 5;
+            if (cameraInstances[i] != null)
+                cameraInstances[i].Priority = (i == index) ? 10 : 5;
         }
 
         activeCameraIndex = index;
@@ -76,13 +82,9 @@ public class CinemachineSwitcherDynamic : MonoBehaviour
             cameraLabel.text = cameraDataArray[activeCameraIndex].label;
 
         // Next preview
-        int nextIndex = activeCameraIndex;
-        do
-        {
-            nextIndex++;
-            if (nextIndex >= cameraDataArray.Length)
-                nextIndex = 1;
-        } while (cameraDataArray[nextIndex].camera == null && nextIndex != activeCameraIndex);
+        int nextIndex = (activeCameraIndex + 1) % cameraDataArray.Length;
+        while (cameraDataArray[nextIndex].camera == null && nextIndex != activeCameraIndex)
+            nextIndex = (nextIndex + 1) % cameraDataArray.Length;
 
         if (nextCameraImage != null)
             nextCameraImage.sprite = cameraDataArray[nextIndex].image;
@@ -91,13 +93,9 @@ public class CinemachineSwitcherDynamic : MonoBehaviour
             nextCameraLabel.text = cameraDataArray[nextIndex].label;
 
         // Previous preview
-        int prevIndex = activeCameraIndex;
-        do
-        {
-            prevIndex--;
-            if (prevIndex <= 0)
-                prevIndex = cameraDataArray.Length - 1;
-        } while (cameraDataArray[prevIndex].camera == null && prevIndex != activeCameraIndex);
+        int prevIndex = (activeCameraIndex - 1 + cameraDataArray.Length) % cameraDataArray.Length;
+        while (cameraDataArray[prevIndex].camera == null && prevIndex != activeCameraIndex)
+            prevIndex = (prevIndex - 1 + cameraDataArray.Length) % cameraDataArray.Length;
 
         if (previousCameraImage != null)
             previousCameraImage.sprite = cameraDataArray[prevIndex].image;
@@ -107,4 +105,3 @@ public class CinemachineSwitcherDynamic : MonoBehaviour
     }
 
 }
-    

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Menu_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 8098368299248442871, guid: 4b36e7820d220d5409a129987595a12b, type: 3}
-  image: {fileID: 0}
-  label: Menu
+  image: {fileID: 21300000, guid: a7fffca71d3b7564082b8ee05dcb07fb, type: 3}
+  label: Panoramica

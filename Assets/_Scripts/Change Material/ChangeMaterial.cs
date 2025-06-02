@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using TMPro;
 
 public class MaterialChangerUI : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class MaterialChangerUI : MonoBehaviour
     [Header("Target Renderer")]
     public Renderer targetRenderer;
 
-    //[SerializeField] GameObject Raio;
     [SerializeField] VisualEffect[] raios;
     public Color[] color;
 
+    [Header("UI")]
+    public TextMeshProUGUI filtroAtivo;
+
+    private int currentIndex = 1; // Start at 1 to skip index 0
 
     void Start()
     {
@@ -21,36 +25,57 @@ public class MaterialChangerUI : MonoBehaviour
             targetRenderer = GetComponent<Renderer>();
         }
 
-        // Optionally apply default material at index 0
+        // Apply default material at index 0
         if (materials.Length > 0 && targetRenderer != null)
         {
-            targetRenderer.material = materials[0];
-            
+            //targetRenderer.material = materials[0];
+
             for (int i = 0; i < raios.Length; i++)
             {
                 raios[i].SetVector4("Cor", color[0]);
             }
         }
+        filtroAtivo.text = "Filtros - Sem Filtro";
+        //UpdateFiltroAtivoText();
     }
 
-    // This method can be called by a UI Button, passing the index in the Inspector
-    public void SetMaterialByIndex(int index)
+    // Toggle to next material (skipping index 0)
+    public void ToggleMaterial()
     {
-        if (materials.Length == 0 || targetRenderer == null)
+        if (materials.Length <= 1 || targetRenderer == null)
             return;
 
-        if (index >= 0 && index < materials.Length)
-        {
-            targetRenderer.material = materials[index];
+        currentIndex++;
+        if (currentIndex >= materials.Length)
+            currentIndex = 1; // Loop back to 1, skipping 0
 
-            for (int i = 0; i < raios.Length; i++)
-            {
-                raios[i].SetVector4("Cor", color[index]);
-            }
-        }
-        else
+        targetRenderer.material = materials[currentIndex];
+
+        for (int i = 0; i < raios.Length; i++)
         {
-            Debug.LogWarning("Invalid material index: " + index);
+            raios[i].SetVector4("Cor", color[currentIndex]);
         }
+
+        UpdateFiltroAtivoText();
+    }
+
+    private void UpdateFiltroAtivoText()
+    {
+        if (filtroAtivo == null) return;
+
+        if (currentIndex == 0)
+            filtroAtivo.text = "Filtros - Sem Filtro";
+        else if (currentIndex == 1)
+            filtroAtivo.text = "Filtro H Alpha";
+        else if (currentIndex == 2)
+            filtroAtivo.text = "Filtro k3";
+        else
+            filtroAtivo.text = "";
+    }
+
+    // Touch or click detection
+    void OnMouseDown()
+    {
+        ToggleMaterial();
     }
 }

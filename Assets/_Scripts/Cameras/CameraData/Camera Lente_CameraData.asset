@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Lente_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 3867678400302032981, guid: 4d696d37cc084c041ab9172bbede4564, type: 3}
-  image: {fileID: 21300000, guid: 6d3593aa0aa26724fac2fa1966eaddce, type: 3}
-  label: Lente
+  image: {fileID: 21300000, guid: 319d84bbd96beca48b93f68d89d40242, type: 3}
+  label: Lente Convergente

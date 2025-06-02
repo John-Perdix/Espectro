@@ -1,12 +1,17 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class Alertas : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textComponent;
-
-    // Optional: set a default message on start
     [SerializeField] private string defaultMessage = "Ready";
+    [SerializeField] private float hideDelay = 15f; // Time in seconds before the alert hides
+    [SerializeField] private GameObject TextContainer;
+
+
+
+    private Coroutine hideCoroutine;
 
     private void Awake()
     {
@@ -27,11 +32,24 @@ public class Alertas : MonoBehaviour
         if (textComponent != null)
         {
             textComponent.text = newText;
+            gameObject.SetActive(true);
+
+            // Restart the hide coroutine
+            if (hideCoroutine != null)
+                StopCoroutine(hideCoroutine);
+            hideCoroutine = StartCoroutine(HideAfterDelay());
         }
         else
         {
             Debug.LogError("TextMeshProUGUI component is not assigned.");
         }
+    }
+
+    private IEnumerator HideAfterDelay()
+    {
+        yield return new WaitForSeconds(hideDelay);
+        if (transform.parent != null)
+            TextContainer.gameObject.SetActive(false);
     }
 
     /// <summary>

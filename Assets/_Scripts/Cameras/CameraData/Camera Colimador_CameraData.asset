@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Colimador_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 4082404881335633502, guid: fcbfc62df23cc204e85abc1e9e876b1d, type: 3}
-  image: {fileID: 21300000, guid: 8d25986adbfa6184d9f1f7f598b6bffa, type: 3}
+  image: {fileID: 21300000, guid: 2c8a135a63e705149b8da7742d89e9ab, type: 3}
   label: Colimador

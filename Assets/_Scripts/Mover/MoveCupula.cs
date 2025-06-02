@@ -8,7 +8,8 @@ public class MoveCupula : MonoBehaviour
     [SerializeField] float tolerancia = 0.5f;
     Vector3 snapPosition;
     bool snapEnabled;
-    [SerializeField] private float stepSize = 0.01f;
+    [SerializeField] private float stepSize = 1f;
+    
     
     
 
@@ -34,7 +35,7 @@ public class MoveCupula : MonoBehaviour
 
         if (direction != 0)
         {
-            rb.AddForce(axis * direction * moveForce, ForceMode.Force);
+            rb.AddForce(axis * direction * moveForce * stepSize, ForceMode.Force);
             //transform.position += axis.normalized * direction * stepSize;
 
 

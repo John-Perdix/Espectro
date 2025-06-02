@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Filtros_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 397257300418681819, guid: 6993118daf9cf5844a1d7a884db6b65a, type: 3}
-  image: {fileID: 21300000, guid: c8a07619427bf2147ab38e39d942ddc1, type: 3}
+  image: {fileID: 21300000, guid: dd565c4ea5cc6c54eaefc427d7d62adc, type: 3}
   label: Filtros

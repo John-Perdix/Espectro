@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Celostato Espelho secundario_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 342719180990348858, guid: 455a542bb89e31e40aec2e77ff6c3edd, type: 3}
-  image: {fileID: 21300000, guid: 67c6824c526424d4e96bf653cf2333b6, type: 3}
-  label: Celostato Espelho secundario
+  image: {fileID: 21300000, guid: 603067802e6bcbf48be27d0db192ebe3, type: 3}
+  label: "Celostato Espelho Secund\xE1rio"

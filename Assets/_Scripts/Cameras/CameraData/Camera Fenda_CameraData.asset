@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Fenda_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 4130048511692733879, guid: 20bfc563630a11e45af89c81f658f46b, type: 3}
-  image: {fileID: 21300000, guid: 0e8869f2b43ba034f9fbf19b1eb5f197, type: 3}
+  image: {fileID: 21300000, guid: 590d8776f2d132441be6e0eb7b1e356c, type: 3}
   label: Fenda

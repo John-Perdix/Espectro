@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Celostato Espelho primario_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 8570043948278325379, guid: 86c5a52a3ce9c8f48ba4c2da81a5e1dd, type: 3}
-  image: {fileID: 21300000, guid: c78f1972ecd5d1b4c8bef5773d3b8a22, type: 3}
-  label: Celostato Espelho primario
+  image: {fileID: 21300000, guid: 43c5fac558df46149869f2efa4993c10, type: 3}
+  label: "Celostato Espelho Prim\xE1rio"

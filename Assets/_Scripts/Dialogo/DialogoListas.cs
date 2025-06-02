@@ -48,7 +48,7 @@ public class DialogoListas : MonoBehaviour
     {
         if (!dialoguesDict.ContainsKey(triggerName))
         {
-            Debug.LogWarning($"Dialogue not found for trigger '{triggerName}'");
+            //Debug.LogWarning($"Dialogue not found for trigger '{triggerName}'");
             return;
         }
 

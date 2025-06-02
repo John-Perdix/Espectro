@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Camera Armarios_CameraData
   m_EditorClassIdentifier: 
   camera: {fileID: 4319069713834061916, guid: 222f4bfd6cfc06a42848aeb178d917cd, type: 3}
-  image: {fileID: 0}
-  label: Armarios
+  image: {fileID: 21300000, guid: 5c9d1bc5cf7c2784a8ffa4c932754a9d, type: 3}
+  label: "Arm\xE1rios"
