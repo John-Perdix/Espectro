@@ -55,28 +55,43 @@ MonoBehaviour:
     - Os filtros permitem escolher exatamente o comprimento de onda que se pretende
       observar, que corresponde a diferentes camadas do sol.
     - Escolhe um dos filtros para selecionar um comprimento de onda!
-    - "O filtro vermelho seleciona a linha H\u03B1 e o Violeta o k3."
+    - "O filtro vermelho seleciona a linha H\u03B1 (H-alpha) e o Violeta o Calcium
+      k3."
   - triggerName: Colimador
     lines:
     - "A luz, ao atravessar o colimador, \xE9 convertida em raios paralelos. Este
-      organiza os raios e facilita a observa\xE7\xE3o, tornando a luz mais uniforme
+      organiza os raios e facil\xEDta a observa\xE7\xE3o, tornando a luz mais uniforme
       e adequada para an\xE1lise."
   - triggerName: Rede de Difracao
     lines:
     - "A rede de difra\xE7\xE3o \xE9 uma placa met\xE1lica riscada, com um fabrico
       de alta precis\xE3o, que cont\xE9m 300 riscas por mil\xEDmetro.\nA rede de
       difra\xE7\xE3o atua como um prisma que divide a luz em v\xE1rios comprimentos
-      de onda, o que forma um arco iris."
+      de onda, o que forma um arco \xEDris."
     - "Como a luz foi filtrada anteriormente para um comprimento de onda espec\xEDfico,
       a rede de difra\xE7\xE3o vai dividir essa luz em pequenas varia\xE7\xF5es em
       torno desse comprimento, permitindo observar detalhes muito precisos do espectro
       solar."
   - triggerName: Camara
     lines:
-    - 'A camara '
+    - "Parab\xE9ns! O ultimo passo para completar uma observa\xE7\xE3o e obter uma
+      imagem do sol \xE9 disparar a cam\xE2ra cerca de 2000 vezes.\nEsta imagem poder\xE1
+      ser analis\xE1da pelos nossos especialistas!"
+    - "Devido \xE0 invers\xE3o dos valores da cor da imagem, as partes mais esruras
+      na imagem s\xE3o na verdade as partes mais luminosas do sol."
+    - "As manchas solares, s\xE3o exatamente as zonas mais escuras. Quanto mais manchas
+      mais atividade o Sol apresenta."
   - triggerName: Armarios
     lines:
     - "Por fim, quando as observa\xE7\xF5es era feitas anal\xF3gicamnete,  as observa\xE7\xF5es
       eram armazenadas nas gavetas dos arm\xE1rios que rodeiam o instrumento."
     - "Hoie em dia s\xE3o armazenadas digitalmente numa base de dados e analisadas
       por um algoritmo autom\xE1ticamente."
+  - triggerName: Observacao
+    lines:
+    - "Parab\xE9ns! Foi completada uma observa\xE7\xE3o e obtida uma imagem do sol
+      que poder\xE1 ser analisada pelos nossos especialistas!"
+    - "Devido \xE0 invers\xE3o dos valores da cor da imagem, as partes mais esruras
+      na imagem s\xE3o na verdade as partes mais luminosas do sol."
+    - "As manchas solares, s\xE3o exatamente as zonas mais escuras. Quanto mais manchas
+      mais atividade o Sol apresenta."

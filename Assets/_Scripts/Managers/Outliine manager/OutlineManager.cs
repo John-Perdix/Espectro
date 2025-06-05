@@ -9,6 +9,8 @@ public class OutlineManager : MonoBehaviour
     public ScriptableRendererFeature outlineDragRenderFeatureMobile;
     public ScriptableRendererFeature outlineTouchRenderFeaturePC;
     public ScriptableRendererFeature outlineTouchRenderFeatureMobile;
+    public ScriptableRendererFeature outlineTouchRenderCupulaFeaturePC;
+    public ScriptableRendererFeature outlineTouchRenderCupulaFeatureMobile;
 
     [Tooltip("Delay in seconds before starting to blink")]
     public float delayInSeconds = 30f;
@@ -24,7 +26,8 @@ public class OutlineManager : MonoBehaviour
     private void Start()
     {
         if (outlineDragRenderFeaturePC == null && outlineDragRenderFeatureMobile == null &&
-            outlineTouchRenderFeaturePC == null && outlineTouchRenderFeatureMobile == null)
+            outlineTouchRenderFeaturePC == null && outlineTouchRenderFeatureMobile == null &&
+            outlineTouchRenderCupulaFeaturePC == null && outlineTouchRenderCupulaFeatureMobile == null)
         {
             Debug.LogError("Outline Render Features are not assigned in the OutlineManager.");
             return;
@@ -35,6 +38,8 @@ public class OutlineManager : MonoBehaviour
         if (outlineDragRenderFeatureMobile != null) outlineDragRenderFeatureMobile.SetActive(false);
         if (outlineTouchRenderFeaturePC != null) outlineTouchRenderFeaturePC.SetActive(false);
         if (outlineTouchRenderFeatureMobile != null) outlineTouchRenderFeatureMobile.SetActive(false);
+        if (outlineTouchRenderCupulaFeaturePC != null) outlineTouchRenderCupulaFeaturePC.SetActive(false);
+        if (outlineTouchRenderCupulaFeatureMobile != null) outlineTouchRenderCupulaFeatureMobile.SetActive(false);
         alerta = false;
 
         // Start blinking coroutine
@@ -44,7 +49,6 @@ public class OutlineManager : MonoBehaviour
     private IEnumerator BlinkRenderFeaturesAfterDelay()
     {
         yield return new WaitForSeconds(delayInSeconds);
-        Debug.Log("Starting to blink outline features...");
 
         while (true)
         {
@@ -52,6 +56,8 @@ public class OutlineManager : MonoBehaviour
             ToggleRenderFeature(outlineDragRenderFeatureMobile);
             ToggleRenderFeature(outlineTouchRenderFeaturePC);
             ToggleRenderFeature(outlineTouchRenderFeatureMobile);
+            ToggleRenderFeature(outlineTouchRenderCupulaFeaturePC);
+            ToggleRenderFeature(outlineTouchRenderCupulaFeatureMobile);
             yield return new WaitForSeconds(blinkInterval);
             alerta = true;
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: RenderObjects Touch 1 Mobile
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: RenderObjects Touch 1 Mobile
     Event: 450
@@ -23,6 +23,48 @@ MonoBehaviour:
         m_Bits: 128
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 3aabde1cbcff460438cc05dc5f67ed0c, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 1
+    depthCompareFunction: 4
+    enableWrite: 0
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &-815739518142990833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: RenderObjects Touch cupula 1 Mobile
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    passTag: RenderObjects Touch cupula 1 Mobile
+    Event: 400
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 128
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: e8114cb77b6252b4fab575521db4b876, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
@@ -71,8 +113,9 @@ MonoBehaviour:
   - {fileID: 6034437585005735620}
   - {fileID: 2611516996134006961}
   - {fileID: -5651337045906576237}
+  - {fileID: -815739518142990833}
   - {fileID: 840909614452369793}
-  m_RendererFeatureMap: c3d75786eb5c622ec46e880103a1be53b170761fdff83d2493acbb18e66a92b181e9a4c9d682ab0b
+  m_RendererFeatureMap: c3d75786eb5c622ec46e880103a1be53b170761fdff83d2493acbb18e66a92b10fb6d6ef3ae9adf481e9a4c9d682ab0b
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -166,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: RenderObjects Drag 1 Mobile
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: RenderObjects Drag 1 Mobile
     Event: 450

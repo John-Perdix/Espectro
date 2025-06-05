@@ -6,10 +6,12 @@ public class MoveCelostato : MonoBehaviour
     [SerializeField] private float rotationForce = 10f;
     [SerializeField] Vector3 axis = new Vector3(0,0,1);
     [SerializeField] public MoveCupula moveCupula;
+    [SerializeField] private float multiplicadorMover = 1f; // Tolerance for snapping to position
     private Rigidbody rb;
     private bool isDragging = false;
     public static bool IsAnyDragging { get; private set; } = false;
     private Vector2 lastTouchPosition;
+
     
     void Start()
     {
@@ -129,7 +131,7 @@ public class MoveCelostato : MonoBehaviour
 
     private void moveOnDrag(float dragDistance){
         if (moveCupula != null){
-        moveCupula.moveForce = Mathf.Abs(dragDistance);
+        moveCupula.moveForce = Mathf.Abs(dragDistance*multiplicadorMover);
         if(dragDistance > 0){
                 moveCupula.MoveForward();
             }

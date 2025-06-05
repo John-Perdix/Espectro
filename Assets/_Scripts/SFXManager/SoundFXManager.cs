@@ -69,4 +69,9 @@ public class SoundFXManager : MonoBehaviour
     {
         throw new System.NotImplementedException();
     }
+
+    public static implicit operator SoundFXManager(CheckAngle v)
+    {
+        throw new System.NotImplementedException();
+    }
 }

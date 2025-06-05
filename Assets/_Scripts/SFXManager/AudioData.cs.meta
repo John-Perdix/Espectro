@@ -7,7 +7,8 @@ MonoImporter:
   - CorrectSound: {fileID: 8300000, guid: 5c18e3c495d42154d8e4a0184cf5abc6, type: 3}
   - WrongSound: {fileID: 8300000, guid: 19ea3b58759bb4f41adff0acdfc3e2b0, type: 3}
   - BeginSound: {fileID: 8300000, guid: 07096c235fc284f4a998f41e2f1b94e9, type: 3}
-  - MoveSound: {instanceID: 0}
+  - MoveSound: {fileID: 8300000, guid: 3774bfd4c1682664f85041cdddce303f, type: 3}
+  - CamaraSound: {fileID: 8300000, guid: febda09d962a7144bb4a08e6dcc1b40d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

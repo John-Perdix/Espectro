@@ -12,6 +12,9 @@ public class DialogoListas : MonoBehaviour
     private Dictionary<string, string[]> dialoguesDict;
     public string[] currentLines;
     public int index;
+    private string currentTriggerName;
+
+    public event System.Action<string> OnDialogueEnded;
 
     void Awake()
     {
@@ -26,23 +29,23 @@ public class DialogoListas : MonoBehaviour
     }
 
     void Update()
-{
-    if (Input.GetMouseButtonDown(0))
     {
-        if (currentLines == null || index >= currentLines.Length)
-            return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentLines == null || index >= currentLines.Length)
+                return;
 
-        if (textComponent.text == currentLines[index])
-        {
-            NextLine();
-        }
-        else
-        {
-            StopAllCoroutines();
-            textComponent.text = currentLines[index];
+            if (textComponent.text == currentLines[index])
+            {
+                NextLine();
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = currentLines[index];
+            }
         }
     }
-}
 
     public void StartDialogue(string triggerName)
     {
@@ -57,6 +60,7 @@ public class DialogoListas : MonoBehaviour
         textComponent.text = string.Empty;
         gameObject.SetActive(true);
         StartCoroutine(TypeLine());
+        currentTriggerName = triggerName;
     }
 
     IEnumerator TypeLine()
@@ -79,6 +83,8 @@ public class DialogoListas : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            if (OnDialogueEnded != null && currentLines != null)
+                OnDialogueEnded?.Invoke(currentTriggerName); // You'll need to store the current trigger name
         }
     }
 }

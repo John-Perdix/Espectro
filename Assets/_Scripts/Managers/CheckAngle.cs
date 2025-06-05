@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckAngle : MonoBehaviour
 {
 
-[Tooltip("'Physical' modeld camera from the instrument, not the camera from the Unity scene")]
+    [Tooltip("'Physical' modeld camera from the instrument, not the camera from the Unity scene")]
     [SerializeField] GameObject camara;//this is the camara mesh object modeld from the instrument, not the camera from the unity scene
     [SerializeField] Vector3 rotation = new Vector3(0, 0, 0); // Default rotation vector
     [SerializeField] float angleThreshold = 10f; // Angle threshold for checking
@@ -20,6 +20,13 @@ public class CheckAngle : MonoBehaviour
     public AudioData audioData;
 
     private bool soundPlayed = false;
+    void Start()
+    {
+        foreach (GameObject raio in Raios)
+        {
+            raio.SetActive(false);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,46 +50,57 @@ public class CheckAngle : MonoBehaviour
                 camara.layer = LayerMask.NameToLayer("Default");
                 soundPlayed = false; // Reset so sound can play again when re-entering the angle
             }
-            
+
             if (RaioAnterior != null)
             {
-                Debug.Log($"Checking RaioAnterior: {RaioAnterior.activeSelf}, Current Angle: {transform.localEulerAngles.z}");
+                Debug.Log($"Checking RaioAnterior: {RaioAnterior.activeSelf}, IsAngleInRange: {IsAngleInRange(transform.localEulerAngles.z, angloMenor, angloMaior)}");
                 // Check if the previous ray is active
                 if (RaioAnterior.activeSelf && IsAngleInRange(transform.localEulerAngles.z, angloMenor, angloMaior))
                 {
                     // If the previous ray is active, enable the current ray
                     foreach (GameObject raio in Raios)
                     {
+                        //Debug.Log($"{raio.name} parent activeSelf: {raio.transform.parent?.gameObject.activeSelf}");
                         raio.SetActive(true);
                     }
                 }
                 else
                 {
-                    // If the previous ray is active, disable the current ray
+                    // Otherwise, disable the current rays
                     foreach (GameObject raio in Raios)
                     {
                         raio.SetActive(false);
                     }
                 }
-            }else{
+            }
+            else
+            {
                 Debug.LogWarning("RaioAnterior is not assigned or is null.");
+                foreach (GameObject raio in Raios)
+                {
+                    raio.SetActive(false);
+                }
             }
         }
         else
         {
             Debug.LogWarning("Camara is not assigned in the inspector.");
+            foreach (GameObject raio in Raios)
+            {
+                raio.SetActive(false);
+            }
         }
     }
 
     private bool IsAngleInRange(float angle, float min, float max)
-{
-    angle = (angle + 360f) % 360f;
-    min = (min + 360f) % 360f;
-    max = (max + 360f) % 360f;
+    {
+        angle = (angle + 360f) % 360f;
+        min = (min + 360f) % 360f;
+        max = (max + 360f) % 360f;
 
-    if (min < max)
-        return angle > min && angle < max;
-    else // Range wraps around 0
-        return angle > min || angle < max;
-}
+        if (min < max)
+            return angle > min && angle < max;
+        else // Range wraps around 0
+            return angle > min || angle < max;
+    }
 }

@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Espectro.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/New Scene.unity
+    guid: 552df4eac2176ef44836acd3761e04a1
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 00919b5476e6fb14696c8a4fc528d3fa, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b5349465d9668fe41bb0cea08456bee5, type: 2}
