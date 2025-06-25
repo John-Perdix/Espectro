@@ -72,9 +72,9 @@ public class CupulaManager : MonoBehaviour
         }
         else if (!isCupulaOpen && MoveCelostato.IsAnyDragging)
         {
-            string text = "Deve Abrir a cúpula antes de interagir com o instrumento";
+            /* string text = "Deve Abrir a cúpula antes de interagir com o instrumento";
             alerta.ClearText();
-            alerta.SetText(text);
+            alerta.SetText(text); */
         }
     }
 

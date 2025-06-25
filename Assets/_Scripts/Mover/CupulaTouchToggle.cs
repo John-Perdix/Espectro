@@ -3,7 +3,6 @@ using UnityEngine;
 public class CupulaTouchToggle : MonoBehaviour
 {
     private MoveCupula moveCupula;
-    private bool toggleState = false; // false = next is forward, true = next is backward
     private bool isTouching = false;
 
     void Start()
@@ -14,13 +13,7 @@ public class CupulaTouchToggle : MonoBehaviour
     void OnMouseDown()
     {
         if (moveCupula == null) return;
-
-        if (!toggleState)
-            moveCupula.MoveForward();
-        else
-            moveCupula.MoveBackward();
-
-        toggleState = !toggleState;
+        moveCupula.MoveForward();
         isTouching = true;
     }
 

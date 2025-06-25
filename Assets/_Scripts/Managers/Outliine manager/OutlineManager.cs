@@ -18,10 +18,10 @@ public class OutlineManager : MonoBehaviour
     [Tooltip("Blink interval in seconds")]
     public float blinkInterval = 1f;
 
-    [Tooltip("Component to change text in the messages")]
-    public Alertas alertaComponent;
-    public CanvasToggle canvasToggle;
-    private bool alerta;
+    /* [Tooltip("Component to change text in the messages")] */
+    /* public Alertas alertaComponent; */
+    /* public CanvasToggle canvasToggle; */
+    /* private bool alerta; */
 
     private void Start()
     {
@@ -40,7 +40,7 @@ public class OutlineManager : MonoBehaviour
         if (outlineTouchRenderFeatureMobile != null) outlineTouchRenderFeatureMobile.SetActive(false);
         if (outlineTouchRenderCupulaFeaturePC != null) outlineTouchRenderCupulaFeaturePC.SetActive(false);
         if (outlineTouchRenderCupulaFeatureMobile != null) outlineTouchRenderCupulaFeatureMobile.SetActive(false);
-        alerta = false;
+        /* alerta = false; */
 
         // Start blinking coroutine
         StartCoroutine(BlinkRenderFeaturesAfterDelay());
@@ -59,11 +59,11 @@ public class OutlineManager : MonoBehaviour
             ToggleRenderFeature(outlineTouchRenderCupulaFeaturePC);
             ToggleRenderFeature(outlineTouchRenderCupulaFeatureMobile);
             yield return new WaitForSeconds(blinkInterval);
-            alerta = true;
+            /* alerta = true; */
         }
     }
 
-    private void Update()
+   /*  private void Update()
     {
         if (alerta)
         {
@@ -71,7 +71,7 @@ public class OutlineManager : MonoBehaviour
             canvasToggle.Show();
             alerta = false;
         }
-    }
+    } */
 
     private void ToggleRenderFeature(ScriptableRendererFeature feature)
     {

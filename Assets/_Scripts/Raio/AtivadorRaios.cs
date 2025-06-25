@@ -6,7 +6,7 @@ public class ActivatorRaios : MonoBehaviour
     [SerializeField] public GameObject Espelho; // Check rotation of this
     [SerializeField] public GameObject[] Raios; // Now supports multiple raios!
     [SerializeField] public GameObject RaioAnterior;
-    [SerializeField] private float tolerance = 0.002f;
+    [SerializeField] public float tolerance = 0.002f;
     public AudioData audioData;
 
     public Vector3 targetPosition;
@@ -65,15 +65,11 @@ public class ActivatorRaios : MonoBehaviour
         if (positionMatches && !soundPlayedPosition)
         {
             SoundFXManager.instance.PlaySoundFXClip(audioData.CorrectSound, transform, 1f);
-            //Debug.Log("Posição Correta");
             soundPlayedPosition = true;
-            wrongSoundEnabled = true;
         }
-        else if (!positionMatches && wrongSoundEnabled)
+        else if (!positionMatches)
         {
             soundPlayedPosition = false;
-            SoundFXManager.instance.PlaySoundFXClip(audioData.WrongSound, transform, 0.3f);
-            wrongSoundEnabled = false;
         }
 
         // Activate/deactivate all raios

@@ -43,10 +43,12 @@ public class MoveCelostato : MonoBehaviour
             // Touch is moving<
             else if (touch.phase == TouchPhase.Moved && isDragging)
             {
-                //Debug.Log("Dragging is being detected");
-                // Apply rotation based on touch movement
                 Vector2 currentPosition = touch.position;
-                float dragDistance = currentPosition.x - lastTouchPosition.x;
+                Vector2 dragVector = currentPosition - lastTouchPosition;
+                
+                // Calculate direction along your desired axis (e.g., horizontal)
+                float dragDistance = Mathf.Abs(dragVector.x) > Mathf.Abs(dragVector.y) ? dragVector.x : dragVector.y;
+                
                 rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
                 lastTouchPosition = currentPosition;
                 moveOnDrag(dragDistance);
@@ -76,15 +78,15 @@ public class MoveCelostato : MonoBehaviour
         }
         else if (Input.GetMouseButton(0) && isDragging)
         {
-            //Debug.Log("Dragging is being detected");
             Vector2 currentPosition = Input.mousePosition;
-            float dragDistance = currentPosition.x - lastTouchPosition.x;
+            Vector2 dragVector = currentPosition - lastTouchPosition;
+            
+            // Calculate direction along your desired axis
+            float dragDistance = Mathf.Abs(dragVector.x) > Mathf.Abs(dragVector.y) ? dragVector.x : dragVector.y;
+            
             rb.AddTorque(axis * dragDistance * rotationForce * Time.deltaTime);
             lastTouchPosition = currentPosition;
-            //Debug.Log(dragDistance);
             moveOnDrag(dragDistance);
-
-            
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -146,22 +148,4 @@ public class MoveCelostato : MonoBehaviour
         return;
     }
     }
-
-    void OnDrawGizmosSelected()
-{
-    var joint = GetComponent<ConfigurableJoint>();
-    if (joint == null) return;
-
-    Vector3 origin = transform.position;
-
-    Gizmos.color = Color.red; // Primary axis
-    Gizmos.DrawLine(origin, origin + transform.rotation * joint.axis);
-
-    Gizmos.color = Color.green; // Secondary axis
-    Gizmos.DrawLine(origin, origin + transform.rotation * joint.secondaryAxis);
-
-    Gizmos.color = Color.blue; // Implied Z-axis
-    Vector3 zAxis = Vector3.Cross(joint.axis, joint.secondaryAxis);
-    Gizmos.DrawLine(origin, origin + transform.rotation * zAxis);
-}
 }

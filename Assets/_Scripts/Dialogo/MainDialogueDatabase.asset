@@ -15,9 +15,9 @@ MonoBehaviour:
   dialogues:
   - triggerName: Intro
     lines:
-    - "Ol\xE1, este \xE9 o Edificio que cont\xE9m o espetroheli\xF3grafo!\nVamos
+    - "Ol\xE1, este \xE9 o edif\xEDcio que cont\xE9m o espetroheli\xF3grafo!\nVamos
       tirar uma fotografia ao Sol?"
-    - "Deves mover a cupula com os bot\xF5es que est\xE3o na lateral para puderes
+    - "Deves mover a c\xFApula com os bot\xF5es que est\xE3o na lateral para puderes
       iniciar o processo. Tal como acontece nas nossas observa\xE7\xF5es."
     - "O sistema \xF3tico do espectroheli\xF3grafo \xE9 composto por um celostato
       e um telesc\xF3pio horizontal, contando com uma lente convergente, filtros
@@ -25,36 +25,36 @@ MonoBehaviour:
   - triggerName: Celostato primario
     lines:
     - "O espelho prim\xE1rio do celostato, tamb\xE9m referido como espelho hor\xE1rio,
-      este tem 400 mm de diametro e \xE9 ajustado para seguir a posi\xE7\xE3o do
-      sol durante o dia."
-    - "Move os espelhos de forma a redirecionar a para o espelho secund\xE1rio e
-      consequentemente para o interior do edificio.\nUtiliza as alavancas e os espelhos!"
+      tem 400 mm de di\xE2metro e \xE9 ajustado para seguir a posi\xE7\xE3o do Sol
+      durante o dia."
+    - "Move o espelho de forma a redirecionar a luz para o pr\xF3ximo espelho e consequentemente
+      para o interior do edif\xEDcio.\nUtiliza as alavancas e o espelho!"
   - triggerName: Celostato secundario
     lines:
-    - "O espelho secund\xE1rio \xE9 "
-    - 'A camara '
+    - "O espelho secund\xE1rio \xE9 o que redireciona a luz para os pr\xF3ximos componentes,
+      a lente convergente e o espectrometro."
   - triggerName: Lente
     lines:
     - "A lente convergente, com uma dist\xE2ncia focal de 4060 mm, \xE9 utilizada
       para focar a luz na entrada do espectrometro e deslocada lateralmente para
       que haja um varrimento total do sol.\n"
-    - 'Utiliza a alavanca para mover a lente na longitudinal e ajustar a distancia
-      focal.
-
-      Foca o disco solar na fenda!'
+    - "Utiliza a alavanca para mover a lente na longitudinal e ajustar a dist\xE2ncia
+      focal.\nO objetivo \xE9 focar o disco solar na fenda!"
+    - "Utiliza a alavanca para mover a lente na longitudinal e ajustar a dist\xE2ncia
+      focal.\nO objetivo \xE9 focar o disco solar na fenda!"
   - triggerName: Fenda
     lines:
     - "A fenda \xE9 o que permite ajustar a quantidade de luz dentro do instrumento.
-      Antigamente era ajustada constantemente de acorodo com a luminosidade do Sol,.
-      Hoje, mant\xE9m-se sempre com a mesma abertura, menor que um fio de cabelo,
+      Antigamente era ajustada constantemente de acorodo com a luminosidade do Sol."
+    - "Hoje, mant\xE9m-se sempre com a mesma abertura, menor que um fio de cabelo,
       para garantir que todas as observa\xE7\xF5es sejam feitas nas mesmas condi\xE7\xF5es."
-    - "Ajusta a fenda para a medida certa! Esta v\xE1i definir a quantidade de luz
-      que entra no instruento"
+    - "O objetivo \xE9 ajustar a fenda para a medida certa!"
   - triggerName: Filtros
     lines:
     - Os filtros permitem escolher exatamente o comprimento de onda que se pretende
       observar, que corresponde a diferentes camadas do sol.
-    - Escolhe um dos filtros para selecionar um comprimento de onda!
+    - "O objetivo \xE9 escolher um dos filtros para selecionar um comprimento de
+      onda!"
     - "O filtro vermelho seleciona a linha H\u03B1 (H-alpha) e o Violeta o Calcium
       k3."
   - triggerName: Colimador
@@ -62,31 +62,32 @@ MonoBehaviour:
     - "A luz, ao atravessar o colimador, \xE9 convertida em raios paralelos. Este
       organiza os raios e facil\xEDta a observa\xE7\xE3o, tornando a luz mais uniforme
       e adequada para an\xE1lise."
+    - "N\xE3o \xE9 necess\xE1rio interagir com este componente."
   - triggerName: Rede de Difracao
     lines:
     - "A rede de difra\xE7\xE3o \xE9 uma placa met\xE1lica riscada, com um fabrico
-      de alta precis\xE3o, que cont\xE9m 300 riscas por mil\xEDmetro.\nA rede de
-      difra\xE7\xE3o atua como um prisma que divide a luz em v\xE1rios comprimentos
-      de onda, o que forma um arco \xEDris."
-    - "Como a luz foi filtrada anteriormente para um comprimento de onda espec\xEDfico,
-      a rede de difra\xE7\xE3o vai dividir essa luz em pequenas varia\xE7\xF5es em
-      torno desse comprimento, permitindo observar detalhes muito precisos do espectro
+      de alta precis\xE3o, que cont\xE9m 300 riscas por mil\xEDmetro.\nAtua como
+      um prisma que divide a luz em v\xE1rios comprimentos de onda, o que forma um
+      arco \xEDris."
+    - "Como a luz j\xE1 foi previamente filtrada para um comprimento de onda espec\xEDfico,
+      a rede de difra\xE7\xE3o divide-a em pequenas varia\xE7\xF5es em torno desse
+      valor, permitindo a observa\xE7\xE3o de detalhes muito precisos do espectro
       solar."
   - triggerName: Camara
     lines:
-    - "Parab\xE9ns! O ultimo passo para completar uma observa\xE7\xE3o e obter uma
-      imagem do sol \xE9 disparar a cam\xE2ra cerca de 2000 vezes.\nEsta imagem poder\xE1
-      ser analis\xE1da pelos nossos especialistas!"
-    - "Devido \xE0 invers\xE3o dos valores da cor da imagem, as partes mais esruras
-      na imagem s\xE3o na verdade as partes mais luminosas do sol."
+    - "O \xFAltimo passo para completar uma observa\xE7\xE3o e obter uma imagem do
+      Sol, \xE9 disparar a c\xE2mara cerca de 2000 vezes.\nEsta imagem poder\xE1
+      ser analisada pelos nossos especialistas!"
+    - "Devido \xE0 invers\xE3o das cores na imagem, as partes mais escuras correspondem
+      \xE0s partes mais luminosas do sol."
     - "As manchas solares, s\xE3o exatamente as zonas mais escuras. Quanto mais manchas
       mais atividade o Sol apresenta."
   - triggerName: Armarios
     lines:
-    - "Por fim, quando as observa\xE7\xF5es era feitas anal\xF3gicamnete,  as observa\xE7\xF5es
-      eram armazenadas nas gavetas dos arm\xE1rios que rodeiam o instrumento."
-    - "Hoie em dia s\xE3o armazenadas digitalmente numa base de dados e analisadas
-      por um algoritmo autom\xE1ticamente."
+    - "Por fim, quando as observa\xE7\xF5es eram feitas anal\xF3gicamnete, eram armazenadas
+      nas gavetas dos arm\xE1rios que rodeiam o instrumento."
+    - "Hoie em dia, s\xE3o armazenadas digitalmente numa base de dados e analisadas
+      por um algoritmo automaticamente."
   - triggerName: Observacao
     lines:
     - "Parab\xE9ns! Foi completada uma observa\xE7\xE3o e obtida uma imagem do sol

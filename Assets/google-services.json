@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739324952468",
+    "project_id": "espectro-5f12d",
+    "storage_bucket": "espectro-5f12d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739324952468:android:c29d0881b7df20937b5981",
+        "android_client_info": {
+          "package_name": "com.JoaoPerdiz.Espectro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNQJ4h_Wnoz5hWD_hfkdqvxhNdZKr9w_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

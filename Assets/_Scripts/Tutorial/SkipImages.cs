@@ -18,7 +18,7 @@ public class SkipImages : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         uiImage = GetComponent<Image>();
-        SetImage(0);
+        //SetImage(0);
     }
 
     void Start()

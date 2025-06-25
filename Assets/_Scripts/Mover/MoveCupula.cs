@@ -5,10 +5,6 @@ public class MoveCupula : MonoBehaviour
 {
     [SerializeField] public float moveForce = 10f;
     [SerializeField] Vector3 axis = new Vector3(1, 0, 0);
-    [SerializeField] ActivatorRaios ativadorRaios;
-    [SerializeField] float tolerancia = 0.5f;
-    Vector3 snapPosition;
-    bool snapEnabled;
     [SerializeField] private float stepSize = 1f;
 
     [Header("Audio Setup")]
@@ -22,23 +18,10 @@ public class MoveCupula : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (ativadorRaios != null)
-        {
-            snapPosition = ativadorRaios.targetPosition;
-            snapEnabled = true;
-        }
-        else
-        {
-            snapEnabled = false;
-        }
     }
 
     void FixedUpdate()
     {
-
-        Vector3 currentPosition = transform.position;
-        float diff = (currentPosition - snapPosition).sqrMagnitude;
-
         if (direction != 0)
         {
             rb.AddForce(axis * direction * moveForce * stepSize, ForceMode.Force);
@@ -61,11 +44,6 @@ public class MoveCupula : MonoBehaviour
             }
         }
 
-        if (diff < tolerancia && snapEnabled)
-        {
-            SnapToPosition();
-        }
-
         //Debug.Log("Posição de "+ name +": " + transform.localPosition);
     }
 
@@ -86,7 +64,6 @@ public class MoveCupula : MonoBehaviour
     public void MoveForward()
     {
         direction = 1;
-
     }
 
     public void MoveBackward()
@@ -100,17 +77,4 @@ public class MoveCupula : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
-
-    public void SnapToPosition()
-    {
-        rb.position = snapPosition;
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-    }
-
-    /* public void PlaySoundFX(AudioClip[] audioClip)
-    {
-        SoundFXManager.instance.PlayRandomSoundFXClip(audioClip, transform, 1f, minPitch: 0.8f, maxPitch: 1.2f);
-    } */
-
 }
