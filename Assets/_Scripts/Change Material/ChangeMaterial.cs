@@ -30,10 +30,10 @@ public class MaterialChangerUI : MonoBehaviour
         {
             //targetRenderer.material = materials[0];
 
-            for (int i = 0; i < raios.Length; i++)
+            /* for (int i = 0; i < raios.Length; i++)
             {
                 raios[i].SetVector4("Cor", color[0]);
-            }
+            } */
         }
         filtroAtivo.text = "Filtros - Sem Filtro";
         //UpdateFiltroAtivoText();
@@ -54,6 +54,12 @@ public class MaterialChangerUI : MonoBehaviour
         for (int i = 0; i < raios.Length; i++)
         {
             raios[i].SetVector4("Cor", color[currentIndex]);
+
+            //set opacity for raios no colimador
+            if (i >= 3)
+            {
+                raios[i].SetFloat("Opacidade", 0.25f);
+            }
         }
 
         UpdateFiltroAtivoText();

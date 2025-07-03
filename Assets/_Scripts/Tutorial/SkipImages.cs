@@ -23,8 +23,10 @@ public class SkipImages : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"SkipImages Start: currentIndex = {currentIndex}");
         dotIndicator.SetupDots(tutorialImages.images.Length);
         SetImage(0);
+        Debug.Log($"SkipImages Start after SetImage(0): currentIndex = {currentIndex}");
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class SkipImages : MonoBehaviour
 
     public void NextImage()
     {
+        Debug.Log($"NextImage called: currentIndex before = {currentIndex}");
         if (tutorialImages == null || tutorialImages.images.Length == 0) return;
 
         // If at last image and user tries to go next, disable the object
@@ -55,6 +58,7 @@ public class SkipImages : MonoBehaviour
         }
 
         currentIndex = (currentIndex + 1) % tutorialImages.images.Length;
+        Debug.Log($"NextImage: currentIndex after = {currentIndex}");
         SetImage(currentIndex);
     }
 
@@ -67,12 +71,22 @@ public class SkipImages : MonoBehaviour
 
     private void SetImage(int index)
     {
+        Debug.Log($"SetImage called with index: {index}, currentIndex: {currentIndex}");
         if (tutorialImages == null || tutorialImages.images.Length == 0) return;
+        
+        currentIndex = index; // Ensure currentIndex matches the parameter
         Sprite sprite = tutorialImages.images[index];
+        
         if (spriteRenderer != null)
+        {
             spriteRenderer.sprite = sprite;
+            Debug.Log($"SpriteRenderer set to image {index}");
+        }
         if (uiImage != null)
+        {
             uiImage.sprite = sprite;
+            Debug.Log($"UI Image set to image {index}");
+        }
 
         dotIndicator.SetActiveDot(index);
     }
